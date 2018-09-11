@@ -42,6 +42,8 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
         private Rigidbody m_Rigidbody;
 	    WheelCollider[] m_WheelColliders;
 
+        public bool isPlane;
+
 
         private void Start()
         {
@@ -62,32 +64,35 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
 
         public void Move(float rollInput, float pitchInput, float yawInput, float throttleInput, bool airBrakes)
         {
-            // transfer input parameters into properties.s
-            RollInput = rollInput;
-            PitchInput = pitchInput;
-            YawInput = yawInput;
-            ThrottleInput = throttleInput;
-            AirBrakes = airBrakes;
+            if (isPlane)
+            {
+                // transfer input parameters into properties.s
+                RollInput = rollInput;
+                PitchInput = pitchInput;
+                YawInput = yawInput;
+                ThrottleInput = throttleInput;
+                AirBrakes = airBrakes;
 
-            ClampInputs();
+                ClampInputs();
 
-            CalculateRollAndPitchAngles();
+                CalculateRollAndPitchAngles();
 
-            AutoLevel();
+                AutoLevel();
 
-            CalculateForwardSpeed();
+                CalculateForwardSpeed();
 
-            ControlThrottle();
+                ControlThrottle();
 
-            CalculateDrag();
+                CalculateDrag();
 
-            CaluclateAerodynamicEffect();
+                CaluclateAerodynamicEffect();
 
-            CalculateLinearForces();
+                CalculateLinearForces();
 
-            CalculateTorque();
+                CalculateTorque();
 
-            CalculateAltitude();
+                CalculateAltitude();
+            }
         }
 
 
