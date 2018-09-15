@@ -12,9 +12,9 @@ public class Activar_prueba : MonoBehaviour
         prueba_2.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider plataforma_prueba_2)
     {
-        if(other.transform.tag == "Player")
+        if(plataforma_prueba_2.transform.tag == "Player")
         {
             prueba_2.SetActive(true);
 
@@ -22,9 +22,9 @@ public class Activar_prueba : MonoBehaviour
     }
 
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider plataforma_prueba_2)
     {
-        if (other.transform.tag == "Player")
+        if (plataforma_prueba_2.transform.tag == "Player")
         {
 
             prueba_2.SetActive(false);
