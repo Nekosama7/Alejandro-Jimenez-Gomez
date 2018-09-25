@@ -14,6 +14,7 @@ public class Fredy : MonoBehaviour
     public float tiempoEstatico;
     public float rango;
     public Transform jugador;
+    public float distancia;
 
     private void Start()
     {
@@ -26,7 +27,7 @@ public class Fredy : MonoBehaviour
 
     private void Update()
     {
-        float distancia = Vector3.Distance(jugador.position, transform.position);
+        distancia = Vector3.Distance(jugador.position, transform.position);
         if(distancia < rango)
         {
             Perseguir();
